@@ -1,26 +1,28 @@
-"""
-labels can contain images as well as text.
-images must first be assigned to a variable in tkinter before they can be used.
-To do this a photoimage is created.
-We can store all the images in the same folder as our python files, but this some becomes
-crowded if we are building a large application.
-As each operating system has a different way of referencing the path to a file e.g.
-windows: c:\users\sarah\documents\pythonfiles
-mac /users/sarah/documents/pythonfiles
-it is good practice to first find the path to the python folder you are using and then
-to set the path to a separate folder containing the images.  Then no matter what operating system is
-being used the path is still valid and you can store your images in a folder.
-This code combines a label a button and a drop down list.
-Both text and an image are added to the label.
-"""
+# """
+# labels can contain images as well as text.
+# images must first be assigned to a variable in tkinter before they can be used.
+# To do this a photoimage is created.
+# We can store all the images in the same folder as our python files, but this some becomes
+# crowded if we are building a large application.
+# As each operating system has a different way of referencing the path to a file e.g.
+# windows: c:\users\sarah\documents\pythonfiles
+# mac /users/sarah/documents/pythonfiles
+# it is good practice to first find the path to the python folder you are using and then
+# to set the path to a separate folder containing the images.  Then no matter what operating system is
+# being used the path is still valid and you can store your images in a folder.
+# This code combines a label a button and a drop down list.
+# Both text and an image are added to the label.
+# """
 from tkinter import *
 import os
+from pathlib import Path
 
 window = Tk()
 
 # Get the path to this file.
 # this is so that the file can be referenced whether it is on a windows/mac or linux OS
-this_folder = os.path.dirname(__file__)  # returns the path to this file
+this_folder = Path.cwd()
+print(this_folder)
 img_folder = os.path.join(this_folder, "img")  # join adds the string onto the path
 
 # create the photo images to add to the labels
@@ -78,5 +80,5 @@ drop.pack()
 myButton.pack()
 myLabel.pack()
 
-# run window and listen for events.
+#run window and listen for events.
 window.mainloop()
